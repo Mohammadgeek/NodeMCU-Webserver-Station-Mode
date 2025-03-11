@@ -8,11 +8,12 @@ const char* password = "bestcourses"; // Enter Password here
 ESP8266WebServer server(80);
 
 bool LEDstatus = LOW;
+const int led = 2; // GPIO 2 OR D4 in nodemcu
 
 void setup() {
   Serial.begin(9600);
   delay(100);
-  pinMode(D4, OUTPUT);
+  pinMode(led, OUTPUT);
 
   Serial.println("Connecting to ");
   Serial.println(ssid);
@@ -43,10 +44,10 @@ void loop() {
   
   if(LEDstatus)
   {
-    digitalWrite(D4, HIGH);}
+    digitalWrite(led, HIGH);}
   else
   {
-    digitalWrite(D4, LOW);}
+    digitalWrite(led, LOW);}
 }
 
 void handle_OnConnect() {
